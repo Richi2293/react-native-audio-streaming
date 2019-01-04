@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
     View,
@@ -31,6 +30,10 @@ export default class App extends Component {
             {
                 name: 'MP3 stream',
                 url: 'http://www.stephaniequinn.com/Music/Canon.mp3'
+            },
+            {
+                name: 'Radio MP3',
+                url: 'http://ice07.fluidstream.net:8080/KissKiss.mp3'
             }
         ];
 
@@ -48,6 +51,7 @@ export default class App extends Component {
                     renderRow={(rowData) =>
                         <TouchableOpacity onPress={() => {
                             this.setState({selectedSource: rowData.url, dataSource: this.ds.cloneWithRows(this.urls)});
+                            console.warn(rowData.url);
                             ReactNativeAudioStreaming.play(rowData.url, {});
                         }}>
                             <View style={StyleSheet.flatten([

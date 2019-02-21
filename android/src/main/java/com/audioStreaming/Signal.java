@@ -356,6 +356,7 @@ public class Signal extends Service implements OnErrorListener,
     @Override
     public void playerAudioTrackCreated(AudioTrack atrack) {
         //  TODO
+        atrack.setVolume(0.05f);
     }
 
     @Override
